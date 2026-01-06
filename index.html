@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESP32 Data Monitor & CSV Export</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>ESP32 Data Monitor</h1>
+        
+        <!-- ESP32 Data Display Section -->
+        <div class="data-section">
+            <h2>ESP32 Sensor Data</h2>
+            <div class="data-grid">
+                <div class="data-card">
+                    <label>Current (A)</label>
+                    <div class="value" id="current">--</div>
+                </div>
+                <div class="data-card">
+                    <label>Voltage (V)</label>
+                    <div class="value" id="voltage">--</div>
+                </div>
+                <div class="data-card">
+                    <label>Timing</label>
+                    <div class="value" id="timing">--</div>
+                </div>
+            </div>
+            <div class="status">
+                <span id="status-indicator" class="status-offline">●</span>
+                <span id="status-text">Waiting for ESP32 data...</span>
+            </div>
+        </div>
+
+        <!-- Unit Consumption Input Section -->
+        <div class="input-section">
+            <h2>Unit Consumption</h2>
+            <div class="input-group">
+                <label for="unit-consumption">Amount of Units Consumed:</label>
+                <input type="number" id="unit-consumption" step="0.01" placeholder="Enter units (kWh)">
+                <button onclick="addUnitConsumption()" class="btn-add">Add</button>
+            </div>
+            <div class="unit-list" id="unit-list">
+                <p class="empty-message">No units added yet</p>
+            </div>
+        </div>
+
+        <!-- Data History Section -->
+        <div class="history-section">
+            <h2>Data History</h2>
+            <div class="table-container">
+                <table id="data-table">
+                    <thead>
+                        <tr>
+                            <th>Timestamp</th>
+                            <th>Current (A)</th>
+                            <th>Voltage (V)</th>
+                            <th>Timing</th>
+                            <th>Unit Consumption (kWh)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-body">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Export Section -->
+        <div class="export-section">
+            <button onclick="exportToCSV()" class="btn-export">Export to CSV</button>
+            <button onclick="clearData()" class="btn-clear">Clear All Data</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
+
