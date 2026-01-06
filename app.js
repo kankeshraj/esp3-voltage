@@ -11,7 +11,7 @@ let dataHistory = [];
 
 // Poll ESP32 data every 2 seconds
 const POLL_INTERVAL = 2000;
-const SERVER_URL = 'http://10.219.105.230:3000/api/esp32-data';
+const SERVER_URL = 'https://esp3-voltage-2.onrender.com//api/esp32-data';
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
